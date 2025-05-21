@@ -51,11 +51,16 @@
       background-color: #2c3e91;
     }
 
+    #chat-wrapper {
+      display: none;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
+
     df-messenger {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      z-index: 9999;
+      width: 100%;
+      height: 600px;
 
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
@@ -77,24 +82,22 @@
     <p>Click below to start chatting:</p>
 
     <button class="custom-launch" onclick="launchChat()">Start Chat</button>
-  </main>
 
-  <!-- Hidden chatbot -->
-  <df-messenger
-    location="us-central1"
-    project-id="hackathon-overlords"
-    agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
-    language-code="en"
-    max-query-length="-1">
-    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
-  </df-messenger>
+    <div id="chat-wrapper">
+      <df-messenger
+        location="us-central1"
+        project-id="hackathon-overlords"
+        agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
+        language-code="en"
+        max-query-length="-1">
+      </df-messenger>
+    </div>
+  </main>
 
   <script>
     function launchChat() {
-      const bubble = document.querySelector("df-messenger").shadowRoot
-        .querySelector("df-messenger-chat-bubble")
-        .shadowRoot.querySelector("button");
-      bubble.click();
+      document.getElementById("chat-wrapper").style.display = "block";
+      window.scrollTo({ top: document.getElementById("chat-wrapper").offsetTop - 50, behavior: "smooth" });
     }
   </script>
 
