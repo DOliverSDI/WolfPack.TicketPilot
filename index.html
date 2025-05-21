@@ -31,35 +31,23 @@
     }
 
     main {
-      padding: 40px;
+      padding: 60px 20px;
       max-width: 800px;
       text-align: center;
     }
 
-    .bubble-wrapper {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-    }
-
+    /* Dialogflow floating widget styling */
     df-messenger {
-      position: relative;
-      bottom: auto;
-      right: auto;
-      z-index: 1;
-      width: 100%;
-      max-width: 400px;
-
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 9999;
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
       --df-messenger-chat-bubble-background: #3f51b5;
-    }
-
-    df-messenger::part(chat-bubble) {
-      margin: 0 auto;
     }
   </style>
 </head>
@@ -71,19 +59,18 @@
 
   <main>
     <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Click the chat button below to start a conversation:</p>
-
-    <div class="bubble-wrapper">
-      <df-messenger
-        location="us-central1"
-        project-id="hackathon-overlords"
-        agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
-        language-code="en"
-        max-query-length="-1">
-        <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
-      </df-messenger>
-    </div>
+    <p>Click the chat button in the bottom-right to start a conversation:</p>
   </main>
+
+  <!-- Dialogflow Chat Bot: Default floating bubble -->
+  <df-messenger
+    location="us-central1"
+    project-id="hackathon-overlords"
+    agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
+    language-code="en"
+    max-query-length="-1">
+    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
+  </df-messenger>
 
 </body>
 </html>
