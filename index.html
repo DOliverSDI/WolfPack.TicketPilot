@@ -1,77 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ticket Pilot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger.js"></script>
-
   <style>
     body {
-      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f8fafc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-family: 'Google Sans', sans-serif;
+      background-color: #f9f9f9;
     }
-
     header {
-      background-color: #3f51b5;
+      background-color: #1a73e8;
       color: white;
-      width: 100%;
+      padding: 16px;
       text-align: center;
-      padding: 20px 0;
-      font-size: 28px;
+      font-size: 24px;
       font-weight: bold;
     }
-
     main {
       padding: 40px;
-      max-width: 800px;
       text-align: center;
     }
-
     df-messenger {
       z-index: 999;
       position: fixed;
-      bottom: 16px;
-      right: 16px;
-
       --df-messenger-font-color: #000;
-      --df-messenger-font-family: "Google Sans", sans-serif;
+      --df-messenger-font-family: Google Sans;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
-      --df-messenger-chat-bubble-background: #3f51b5;
+      bottom: 16px;
+      right: 16px;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    Ticket Pilot
-  </header>
-
+  <header>Ticket Pilot</header>
   <main>
-    <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Click the chat bubble in the bottom right to ask your project-related questions.</p>
+    <p>Welcome to the App Ticket Pilot. Use the chatbot in the bottom-right corner to manage your project tickets.</p>
   </main>
 
-  <!-- Dialogflow Messenger Component -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
     agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
+    <df-messenger-chat-bubble chat-title="Project Manager">
+    </df-messenger-chat-bubble>
   </df-messenger>
 
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 </body>
 </html>
-
