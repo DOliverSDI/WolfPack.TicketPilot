@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ticket Pilot</title>
+  <title>Information Mediator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger.js"></script>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
 
   <style>
     body {
@@ -31,45 +31,45 @@
     }
 
     main {
-      padding: 60px 20px;
+      padding: 40px;
       max-width: 800px;
       text-align: center;
     }
 
-    /* Dialogflow floating widget styling */
     df-messenger {
+      z-index: 999;
       position: fixed;
       bottom: 16px;
       right: 16px;
-      z-index: 9999;
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
-      --df-messenger-chat-bubble-background: #3f51b5;
     }
   </style>
 </head>
 <body>
 
   <header>
-    Ticket Pilot
+    Information Mediator
   </header>
 
   <main>
-    <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Click the chat button in the bottom-right to start a conversation:</p>
+    <p>Welcome to the Information Mediator — your intelligent assistant powered by Dialogflow.</p>
+    <p>Ask your project management questions by clicking the chat bubble in the bottom right.</p>
   </main>
 
-  <!-- Dialogflow Chat Bot: Default floating bubble -->
+  <!-- Dialogflow Messenger component -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
     agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
+    <df-messenger-chat-bubble
+      chat-title="Project Manager">
+    </df-messenger-chat-bubble>
   </df-messenger>
 
 </body>
