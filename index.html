@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ticket Pilot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  
   <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger.js"></script>
@@ -31,17 +31,16 @@
     }
 
     main {
-      padding: 60px 20px;
+      padding: 40px;
       max-width: 800px;
       text-align: center;
     }
 
     df-messenger {
+      z-index: 999;
       position: fixed;
       bottom: 16px;
       right: 16px;
-      z-index: 9999;
-
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
@@ -69,7 +68,9 @@
     agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
+    <df-messenger-chat-bubble
+      chat-title="Ticket Pilot">
+    </df-messenger-chat-bubble>
   </df-messenger>
 
 </body>
