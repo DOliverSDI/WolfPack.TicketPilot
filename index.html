@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ticket Pilot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
@@ -48,8 +48,12 @@
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
-      width: 100%;
       max-width: 400px;
+      width: 100%;
+      height: 600px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -60,9 +64,9 @@
   </header>
 
   <main>
-    <p>Welcome to the Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Ask your project management questions below:</p>
-    
+    <p>Welcome to Ticket Pilot — your intelligent assistant for managing Jira-style tasks and ticketing workflows.</p>
+    <p>Ask a question below to get started:</p>
+
     <div id="chat-container">
       <df-messenger
         location="us-central1"
