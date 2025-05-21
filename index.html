@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Ticket Pilot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
   <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger.js"></script>
@@ -36,12 +36,14 @@
       text-align: center;
     }
 
-    /* Center the Dialogflow bubble at bottom */
+    /* Fix the floating bubble but center it with margin auto */
     df-messenger {
       position: fixed;
       bottom: 16px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      width: 400px;
       z-index: 9999;
 
       --df-messenger-font-color: #000;
@@ -64,16 +66,14 @@
     <p>Ask your project management questions by clicking the chat bubble below.</p>
   </main>
 
-  <!-- Dialogflow Messenger component -->
+  <!-- Centered Dialogflow Messenger -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
     agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble
-      chat-title="Ticket Pilot">
-    </df-messenger-chat-bubble>
+    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
   </df-messenger>
 
 </body>
