@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Ticket Pilot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Dialogflow Messenger UI -->
   <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
-  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger.js"></script>
 
   <style>
     body {
@@ -31,46 +31,72 @@
     }
 
     main {
-      padding: 40px;
+      padding: 60px 20px;
       max-width: 800px;
       text-align: center;
     }
 
+    button.custom-launch {
+      background-color: #3f51b5;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    button.custom-launch:hover {
+      background-color: #2c3e91;
+    }
+
     df-messenger {
-      z-index: 999;
       position: fixed;
       bottom: 16px;
       right: 16px;
+      z-index: 9999;
+
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
+      --df-messenger-chat-bubble-background: #3f51b5;
     }
   </style>
 </head>
 <body>
 
   <header>
-   Ticket Pilot
+    Ticket Pilot
   </header>
 
   <main>
-    <p>Welcome to the Ticket Pilot — your intelligent assistant.</p>
-    <p>Ask your project management questions by clicking the chat bubble in the bottom right.</p>
+    <p>Welcome to Ticket Pilot — your intelligent assistant for managing Jira-style tasks and ticketing workflows.</p>
+    <p>Click below to start chatting:</p>
+
+    <button class="custom-launch" onclick="launchChat()">Start Chat</button>
   </main>
 
-  <!-- Dialogflow Messenger component -->
+  <!-- Hidden chatbot -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
     agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
     language-code="en"
     max-query-length="-1">
-    <df-messenger-chat-bubble
-      chat-title="Ticket Pilot">
-    </df-messenger-chat-bubble>
+    <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
   </df-messenger>
+
+  <script>
+    function launchChat() {
+      const bubble = document.querySelector("df-messenger").shadowRoot
+        .querySelector("df-messenger-chat-bubble")
+        .shadowRoot.querySelector("button");
+      bubble.click();
+    }
+  </script>
 
 </body>
 </html>
