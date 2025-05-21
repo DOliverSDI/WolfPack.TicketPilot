@@ -31,19 +31,30 @@
     }
 
     main {
-      padding: 40px;
+      padding: 60px 20px;
       max-width: 800px;
       text-align: center;
     }
 
-    /* Fix the floating bubble but center it with margin auto */
+    button.custom-launch {
+      background-color: #3f51b5;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 40px;
+    }
+
+    button.custom-launch:hover {
+      background-color: #2c3e91;
+    }
+
     df-messenger {
       position: fixed;
       bottom: 16px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      width: 400px;
+      right: 16px;
       z-index: 9999;
 
       --df-messenger-font-color: #000;
@@ -63,10 +74,12 @@
 
   <main>
     <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Ask your project management questions by clicking the chat bubble below.</p>
+    <p>Click the button below to start chatting:</p>
+
+    <button class="custom-launch" onclick="openChat()">Start Chat</button>
   </main>
 
-  <!-- Centered Dialogflow Messenger -->
+  <!-- Dialogflow Messenger -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
@@ -75,6 +88,18 @@
     max-query-length="-1">
     <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
   </df-messenger>
+
+  <script>
+    function openChat() {
+      // Try accessing the Shadow DOM of the Messenger to trigger the open button
+      const messenger = document.querySelector("df-messenger");
+      if (!messenger) return;
+
+      const bubbleRoot = messenger.shadowRoot?.querySelector("df-messenger-chat-bubble")?.shadowRoot;
+      const openBtn = bubbleRoot?.querySelector("button");
+      openBtn?.click();
+    }
+  </script>
 
 </body>
 </html>
