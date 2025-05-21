@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ticket Pilot</title>
+  <title>Information Mediator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Dialogflow Messenger UI -->
@@ -36,16 +36,20 @@
       text-align: center;
     }
 
+    #chat-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
     df-messenger {
-      z-index: 999;
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
+      width: 100%;
+      max-width: 400px;
     }
   </style>
 </head>
@@ -57,20 +61,19 @@
 
   <main>
     <p>Welcome to the Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Ask your project management questions by clicking the chat bubble in the bottom right.</p>
+    <p>Ask your project management questions below:</p>
+    
+    <div id="chat-container">
+      <df-messenger
+        location="us-central1"
+        project-id="hackathon-overlords"
+        agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
+        language-code="en"
+        max-query-length="-1">
+        <df-messenger-chat-bubble chat-title="Project Manager"></df-messenger-chat-bubble>
+      </df-messenger>
+    </div>
   </main>
-
-  <!-- Dialogflow Messenger component -->
-  <df-messenger
-    location="us-central1"
-    project-id="hackathon-overlords"
-    agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
-    language-code="en"
-    max-query-length="-1">
-    <df-messenger-chat-bubble
-      chat-title="Project Manager">
-    </df-messenger-chat-bubble>
-  </df-messenger>
 
 </body>
 </html>
