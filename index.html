@@ -34,12 +34,9 @@
       padding: 60px 20px;
       max-width: 800px;
       text-align: center;
-    }
-
-    #chat-container {
       display: flex;
-      justify-content: center;
-      margin: 80px auto; /* moves the bot lower down */
+      flex-direction: column;
+      align-items: center;
     }
 
     df-messenger {
@@ -48,13 +45,13 @@
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
-      --df-messenger-chat-bubble-background: #3f51b5; /* makes chat button blue */
+      --df-messenger-chat-bubble-background: #3f51b5;
+
       max-width: 400px;
       width: 100%;
       height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 60px;
+      position: static; /* disables fixed position */
     }
   </style>
 </head>
@@ -66,18 +63,16 @@
 
   <main>
     <p>Welcome to Ticket Pilot — your intelligent assistant for managing Jira-style tasks and ticketing workflows.</p>
-    <p>Ask a question below to get started:</p>
+    <p>Click the button below to start chatting.</p>
 
-    <div id="chat-container">
-      <df-messenger
-        location="us-central1"
-        project-id="hackathon-overlords"
-        agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
-        language-code="en"
-        max-query-length="-1">
-        <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
-      </df-messenger>
-    </div>
+    <df-messenger
+      location="us-central1"
+      project-id="hackathon-overlords"
+      agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
+      language-code="en"
+      max-query-length="-1">
+      <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
+    </df-messenger>
   </main>
 
 </body>
