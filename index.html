@@ -31,50 +31,35 @@
     }
 
     main {
-      padding: 60px 20px;
+      padding: 40px;
       max-width: 800px;
       text-align: center;
     }
 
-    button.custom-launch {
-      background-color: #3f51b5;
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    .bubble-wrapper {
       margin-top: 40px;
-    }
-
-    button.custom-launch:hover {
-      background-color: #2c3e91;
-    }
-
-    #chat-wrapper {
-      width: 100%;
-      max-width: 600px;
-      transition: all 0.3s ease-in-out;
-      margin-top: 40px;
-      visibility: hidden;
-      height: 0;
-      overflow: hidden;
-    }
-
-    #chat-wrapper.active {
-      visibility: visible;
-      height: 600px;
+      display: flex;
+      justify-content: center;
     }
 
     df-messenger {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      z-index: 1;
       width: 100%;
-      height: 100%;
+      max-width: 400px;
+
       --df-messenger-font-color: #000;
       --df-messenger-font-family: "Google Sans", sans-serif;
       --df-messenger-chat-background: #f3f6fc;
       --df-messenger-message-user-background: #d3e3fd;
       --df-messenger-message-bot-background: #fff;
       --df-messenger-chat-bubble-background: #3f51b5;
+    }
+
+    df-messenger::part(chat-bubble) {
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -85,29 +70,20 @@
   </header>
 
   <main>
-    <p>Welcome to Ticket Pilot — your intelligent assistant for managing Jira-style tasks and ticketing workflows.</p>
-    <p>Click below to start chatting:</p>
+    <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
+    <p>Click the chat button below to start a conversation:</p>
 
-    <button class="custom-launch" onclick="launchChat()">Start Chat</button>
-
-    <div id="chat-wrapper">
+    <div class="bubble-wrapper">
       <df-messenger
         location="us-central1"
         project-id="hackathon-overlords"
         agent-id="db5b3f3a-f656-4c7e-88f1-15c8b443fe8f"
         language-code="en"
         max-query-length="-1">
+        <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
       </df-messenger>
     </div>
   </main>
-
-  <script>
-    function launchChat() {
-      const chatWrapper = document.getElementById("chat-wrapper");
-      chatWrapper.classList.add("active");
-      chatWrapper.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  </script>
 
 </body>
 </html>
