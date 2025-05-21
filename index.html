@@ -36,21 +36,6 @@
       text-align: center;
     }
 
-    button.custom-launch {
-      background-color: #3f51b5;
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 40px;
-    }
-
-    button.custom-launch:hover {
-      background-color: #2c3e91;
-    }
-
     df-messenger {
       position: fixed;
       bottom: 16px;
@@ -74,12 +59,10 @@
 
   <main>
     <p>Welcome to Ticket Pilot — your intelligent assistant powered by Dialogflow.</p>
-    <p>Click the button below to start chatting:</p>
-
-    <button class="custom-launch" onclick="openChat()">Start Chat</button>
+    <p>Ask your project management questions by clicking the chat bubble in the bottom right.</p>
   </main>
 
-  <!-- Dialogflow Messenger -->
+  <!-- Dialogflow Messenger component -->
   <df-messenger
     location="us-central1"
     project-id="hackathon-overlords"
@@ -88,18 +71,6 @@
     max-query-length="-1">
     <df-messenger-chat-bubble chat-title="Ticket Pilot"></df-messenger-chat-bubble>
   </df-messenger>
-
-  <script>
-    function openChat() {
-      // Try accessing the Shadow DOM of the Messenger to trigger the open button
-      const messenger = document.querySelector("df-messenger");
-      if (!messenger) return;
-
-      const bubbleRoot = messenger.shadowRoot?.querySelector("df-messenger-chat-bubble")?.shadowRoot;
-      const openBtn = bubbleRoot?.querySelector("button");
-      openBtn?.click();
-    }
-  </script>
 
 </body>
 </html>
