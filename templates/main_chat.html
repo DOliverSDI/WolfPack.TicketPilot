@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Chat Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="edit-title-row">
+            <input type="text" id="editTitle" value="Editable Title" />
+            <button id="editSubmitBtn">Submit</button>
+        </div>
+        <div id="spinner" class="spinner" style="display:none; margin: 0 auto;"></div>
+        <textarea id="editBox" placeholder="Write and edit text here..."></textarea>
+        <div class="subtitle">Chat Log</div>
+        <div id="chatBox"></div>
+        <input type="text" id="inputBox" placeholder="Type your message here..." />
+    </div>
+    <!-- Modal for AI response -->
+    <div id="aiModal" class="modal">
+        <div class="modal-content">
+            <span id="aiModalClose" class="close">&times;</span>
+            <pre id="aiModalContent" style="white-space: pre-wrap;"></pre>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
