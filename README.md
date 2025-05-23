@@ -8,6 +8,15 @@ TicketPilot is an innovative AI project designed to transform complex support ti
 
 The primary goal of TicketPilot is to automatically generate comprehensive documentation from support tickets and chat logs, making technical solutions accessible to users of all technical backgrounds. By processing support interactions, the system creates documentation that anyone can understand and use to resolve similar issues.
 
+## How to run
+
+It might be difficult to get it up and running. We had used poetry as our dependency manager. If you have our project downloaded in code editor like vscode that has access to a terminal, here are some steps to possibly get the app working.
+-  If you have poetry installed, you can clone our repository and run run 'poetry install --no-root' to download our dependencies.
+-  make sure you are running python version 3.13 or above
+-  We are using hugging face transformers so it may ask for a User Access Token in order to run. If needed, let us know and we can see if we can resolve it
+
+
+
 ## Project Architecture
 
 ### Part 1: Information Mediator (Gemma 3 Model)
