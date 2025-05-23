@@ -15,7 +15,11 @@ It might be difficult to get it up and running. We had used poetry as our depend
 -  make sure you are running python version 3.13 or above
 -  We are using hugging face transformers so it may ask for a User Access Token in order to run. If needed, let us know and we can see if we can resolve it
 
+### If after running app.py that the program does not give you any errors, you can click on the flask ip address to view the local site
+![Images/Screenshot 2025-05-23 at 9.35.45 AM.png](https://github.com/DOliverSDI/WolfPack.TicketPilot/blob/main/Images/Screenshot%202025-05-23%20at%209.35.45%E2%80%AFAM.png)
 
+### The site should look like the image below if done correctly:
+![Screenshoot of Program](https://github.com/DOliverSDI/WolfPack.TicketPilot/blob/main/Images/Screenshot%202025-05-23%20at%209.35.15%E2%80%AFAM.png)
 
 ## Project Architecture
 
